@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+
 export interface PageConfig {
   type?: "Classic" | "Manager" | "Form" | "StepForm" | "Documentation"
   menuType?: "Top" | "Right" | "Left" | "Bottom"
@@ -14,4 +16,12 @@ export class PageConfig implements PageConfig {
     this.menuType = pageConfig.menuType || 'Top'
     this.sideBarType = pageConfig.sideBarType || 'Over'
   }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PageConfigService {
+
+  constructor() { }
 }
