@@ -19,20 +19,17 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
     if (appConfig) {
-      this.style = appConfig.style || "Classic"
+      this.style = appConfig.style || "Aqua"
       this.theme = appConfig.theme || "beach-theme"
     } else {
-      this.style = "Classic"
+      this.style = "Aqua"
       this.theme = "beach-theme"
     }
     return this
   }
 }
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AppConfigService implements OnDestroy {
 
   private readonly appConfig: BehaviorSubject<AppConfig>
@@ -63,10 +60,7 @@ export class AppConfigService implements OnDestroy {
     } catch (err) {
       console.error(err)
     }
-
   }
 
   ngOnDestroy() { this.subs.forEach(sub => sub.unsubscribe()) }
-
-
 }

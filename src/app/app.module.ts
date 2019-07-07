@@ -14,13 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppConfigDialogComponent } from './app-config/app-config-dialog/app-config-dialog.component';
+import { AquaComponent } from './app-style/aqua/aqua.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppConfigComponent,
     ClassicComponent,
-    AppConfigDialogComponent
+    AppConfigDialogComponent,
+    AquaComponent
   ],
   imports: [
     BrowserModule,
