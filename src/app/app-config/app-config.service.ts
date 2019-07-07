@@ -2,21 +2,28 @@ import { Injectable, OnDestroy } from '@angular/core'
 import { BehaviorSubject, Observable, Subscription } from 'rxjs'
 
 export interface AppConfig {
-  type?: "Classic" | "Aqua"
-  theme?: "deeppurple-amber" | "indigo-pink.css" | "pink-bluegrey.css" | "purple-green.css"
+  type?: 'Classic' | 'Aqua'
+  theme?:
+  'arizona-theme' | 'beach-theme' | 'corp-theme' | 'lush-theme' |
+  'midnight-theme' | 'pirate-theme' | 'tech-theme' | 'tropial-theme' | string
+}
+
+export interface Theme {
+  name: string
+  primary: string
+  accent: string
+  icon: string
 }
 
 export class AppConfig implements AppConfig {
-  //type?: "Classic" | "Aqua"
-  //theme?: "deeppurple-amber" | "indigo-pink.css" | "pink-bluegrey.css" | "purple-green.css"
 
   constructor(appConfig?: AppConfig) {
     if (appConfig) {
       this.type = appConfig.type || "Classic"
-      this.theme = "deeppurple-amber"
+      this.theme = appConfig.theme || "beach-theme"
     } else {
       this.type = "Classic"
-      this.theme = "deeppurple-amber"
+      this.theme = "beach-theme"
     }
     return this
   }
@@ -32,6 +39,17 @@ export class AppConfigService implements OnDestroy {
   private readonly currentAppConfig: Observable<AppConfig>
   public setAppConfig(appConfig: AppConfig): void { this.appConfig.next(appConfig) }
   public getAppConfig(): Observable<AppConfig> { return this.currentAppConfig }
+
+  readonly themes: Theme[] = [
+    { name: 'arizona', primary: '#8D6E63', accent: '#FF7043', icon: 'wb_sunny' },
+    { name: 'beach', primary: '#009688', accent: '#BCAAA4', icon: 'beach_access' },
+    { name: 'corp', primary: '#607D8B', accent: '#9E9E9E', icon: 'domain' },
+    { name: 'lush', primary: '#2E7D32', accent: '#AED581', icon: 'spa' },
+    { name: 'midnight', primary: '#512DA8', accent: '#3F51B5', icon: 'brightness_2' },
+    { name: 'pirate', primary: '#212121', accent: '#B71C1C', icon: 'sentiment_very_dissatisfied' },
+    { name: 'tech', primary: '#1DE9B6', accent: '#263238', icon: 'computer' },
+    { name: 'tropical', primary: '#3F51B5', accent: '#03A9F4', icon: 'brightness_low' },
+  ]
 
   appConfig$: AppConfig
   subs: Subscription[] = []

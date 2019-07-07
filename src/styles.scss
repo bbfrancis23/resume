@@ -1,14 +1,52 @@
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "arizona-theme.scss";
+@import "beach-theme.scss";
+@import "corp-theme.scss";
+@import "lush-theme.scss";
+@import "midnight-theme.scss";
+@import "pirate-theme.scss";
+@import "tech-theme.scss";
+@import "tropical-theme.scss";
+
+@import '~@angular/material/theming';
+@include mat-core();
 
 @import "bootstrap/grid.scss";
 
-body{
-  margin: 0px
+.arizona-theme{
+  @include angular-material-theme($arizona-theme)
 }
 
-.spacer-greedy{
-  flex: 1 1 auto
+.beach-theme{
+  @include angular-material-theme($beach-theme)
+  //@include custom-components-theme($beach-theme);
 }
+
+.corp-theme{
+  @include angular-material-theme($corp-theme)
+}
+
+.lush-theme{
+  @include angular-material-theme($lush-theme)
+}
+
+.midnight-theme{
+  @include angular-material-theme($midnight-theme)
+}
+
+.pirate-theme{
+  @include angular-material-theme($pirate-theme)
+}
+
+.tech-theme{
+  @include angular-material-theme($tech-theme)
+}
+
+.tropical-theme{
+  @include angular-material-theme($tropical-theme)
+}
+
+body{ margin: 0px }
+
+.spacer-greedy{ flex: 1 1 auto }
+
+//.mat-dialog-container{ background: white }

@@ -1,3 +1,3 @@
-<app-classic [menu]="menu">
+<app-classic [menu]=" menu" *ngIf="appConfig$.type === 'Classic'">
   <router-outlet></router-outlet>
 </app-classic>

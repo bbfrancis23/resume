@@ -11,20 +11,25 @@ import { ClassicComponent } from './app-type/classic/classic.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { AppConfigDialogComponent } from './app-config/app-config-dialog/app-config-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppConfigComponent,
-    ClassicComponent
+    ClassicComponent,
+    AppConfigDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule, MatIconModule, MatButtonModule
+    MatToolbarModule, MatIconModule, MatButtonModule, MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AppConfigDialogComponent],
 })
 export class AppModule { }

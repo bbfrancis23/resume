@@ -1,31 +1,29 @@
 import { Component, OnDestroy } from '@angular/core'
-import { AppConfigService, AppConfig } from './app-config/app-config.service'
-import { Menu, MenuItem } from './menu/menu'
+import { OverlayContainer } from '@angular/cdk/overlay'
 
 import { Subscription } from 'rxjs'
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+import { AppConfigService, AppConfig } from './app-config/app-config.service'
+import { Menu } from './menu/menu'
+
+@Component({ selector: 'app-root', templateUrl: 'app.component.html', styleUrls: ['app.component.scss'] })
 export class AppComponent implements OnDestroy {
 
   private appConfig$: AppConfig
+  menu: Menu
   subs: Subscription[] = []
 
-  menu: Menu
+  lastTheme: string = null
 
 
-  constructor(private appConfigService: AppConfigService) {
+  constructor(
+    private appConfigService: AppConfigService,
+    private overlayContainer: OverlayContainer) {
+
 
     try {
-      this.appConfigService.getAppConfig().subscribe(c => {
-        console.log(c)
-        this.appConfig$ = c
-      })
+      this.initStyleTheme()
 
-      this.appConfigService.setAppConfig(new AppConfig({ type: 'Aqua' }))
     } catch (err) {
       console.error(err)
     }
@@ -45,6 +43,22 @@ export class AppComponent implements OnDestroy {
     }
   }
 
+  initStyleTheme() {
+    this.appConfigService.getAppConfig().subscribe(c => {
+      this.appConfig$ = c
+      console.log(c)
+      if (this.lastTheme) {
+        this.overlayContainer.getContainerElement().classList.remove(this.lastTheme);
+        document.body.classList.remove(this.lastTheme);
+      }
+
+      this.lastTheme = this.appConfig$.theme
+
+      this.overlayContainer.getContainerElement().classList.add(this.appConfig$.theme);
+      document.body.classList.add(this.appConfig$.theme)
+    })
+
+  }
 
 
   ngOnDestroy() { this.subs.forEach(sub => sub.unsubscribe()) }

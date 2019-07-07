@@ -1,0 +1,18 @@
+<div>
+  <span mat-dialog-title>Application Settings</span>
+  <mat-dialog-content align="center">
+    <span>Choose a Theme:</span>
+    <div style="padding-bottom: 10px">
+      <span *ngFor="let theme of appConfigService.themes;let i = index">
+        <br *ngIf="i===4">
+        <button [ngClass]="{'selected': appConfig$.theme === theme.name+'-theme'}" (click)="updateTheme(theme.name)" mat-mini-fab style="margin: 3px" [ngStyle]="{'background-color': theme.primary , 'color':theme.accent}">
+          <mat-icon [ngClass]="{'icon-adjust': appConfig$.theme === theme.name+'-theme' }">{{theme.icon}}</mat-icon>
+        </button>
+      </span>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button mat-button [mat-dialog-close]="true">DONE</button>
+  </mat-dialog-actions>
+</div>
