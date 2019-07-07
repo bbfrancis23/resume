@@ -2,7 +2,7 @@ import { Injectable, OnDestroy } from '@angular/core'
 import { BehaviorSubject, Observable, Subscription } from 'rxjs'
 
 export interface AppConfig {
-  type?: 'Classic' | 'Aqua'
+  style?: 'Classic' | 'Aqua'
   theme?:
   'arizona-theme' | 'beach-theme' | 'corp-theme' | 'lush-theme' |
   'midnight-theme' | 'pirate-theme' | 'tech-theme' | 'tropial-theme' | string
@@ -19,10 +19,10 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
     if (appConfig) {
-      this.type = appConfig.type || "Classic"
+      this.style = appConfig.style || "Classic"
       this.theme = appConfig.theme || "beach-theme"
     } else {
-      this.type = "Classic"
+      this.style = "Classic"
       this.theme = "beach-theme"
     }
     return this
@@ -47,7 +47,7 @@ export class AppConfigService implements OnDestroy {
     { name: 'lush', primary: '#2E7D32', accent: '#AED581', icon: 'spa' },
     { name: 'midnight', primary: '#512DA8', accent: '#3F51B5', icon: 'brightness_2' },
     { name: 'pirate', primary: '#212121', accent: '#B71C1C', icon: 'sentiment_very_dissatisfied' },
-    { name: 'tech', primary: '#1DE9B6', accent: '#263238', icon: 'computer' },
+    { name: 'tech', primary: '#263238', accent: '#1DE9B6', icon: 'computer' },
     { name: 'tropical', primary: '#3F51B5', accent: '#03A9F4', icon: 'brightness_low' },
   ]
 

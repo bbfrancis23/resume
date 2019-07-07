@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppConfigComponent } from './app-config/app-config.component';
-import { ClassicComponent } from './app-type/classic/classic.component';
+import { ClassicComponent } from './app-style/classic/classic.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
