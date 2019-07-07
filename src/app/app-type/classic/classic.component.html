@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+
+    <button mat-raised-button color="primary">
+      <span style="border: 3px solid white; padding: 5px 7px">{{menu.home.title}}</span>
+    </button>
+
+
+    <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks">{{pl.title}}</button>
+
+    <span class="spacer-greedy"></span>
+    <button mat-icon-button *ngFor="let m of menu.managers">
+      <mat-icon click="openAppSettings()">{{m.icon}}</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

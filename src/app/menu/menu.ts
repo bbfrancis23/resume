@@ -3,6 +3,7 @@ export interface MenuItem {
   tooltip?: string
   icon?: string
   link?: string
+  dialog?: boolean
 }
 
 

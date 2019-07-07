@@ -40,7 +40,7 @@ export class AppComponent implements OnDestroy {
         { title: 'Testimonials', tooltip: 'Testimonials', icon: 'star' }
       ],
       managers: [
-        { title: 'App Manager', tooltip: 'Application Manager', icon: 'setting_application' }
+        { title: 'App Manager', tooltip: 'Application Manager', icon: 'settings_applications', dialog: true }
       ]
     }
   }
