@@ -2,6 +2,6 @@
   <router-outlet></router-outlet>
 </app-classic>
 
-<app-aqua *ngIf="appConfig$.style === 'Aqua'">
+<app-aqua [menu]=" menu" *ngIf="appConfig$.style === 'Aqua'">
   <router-outlet></router-outlet>
 </app-aqua>

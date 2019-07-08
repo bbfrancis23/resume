@@ -9,6 +9,7 @@ import { AppConfigDialogComponent } from '../../app-config/app-config-dialog/app
 @Component({ selector: 'app-aqua', templateUrl: './aqua.component.html', styleUrls: ['./aqua.component.scss'] })
 export class AquaComponent extends AppStyle {
 
+  sideNavOpened = true
   constructor() { super() }
 
 }

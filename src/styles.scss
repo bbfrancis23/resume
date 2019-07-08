@@ -6,47 +6,58 @@
 @import "pirate-theme.scss";
 @import "tech-theme.scss";
 @import "tropical-theme.scss";
-
 @import '~@angular/material/theming';
 @include mat-core();
-
 @import "bootstrap/grid.scss";
-
-.arizona-theme{
-  @include angular-material-theme($arizona-theme)
+@import "app/app-style/aqua/aqua-theme.scss";
+@mixin custom-components-theme($theme) {
+  @include aqua-theme($theme);
 }
 
-.beach-theme{
-  @include angular-material-theme($beach-theme)
-  //@include custom-components-theme($beach-theme);
+.arizona-theme {
+  @include angular-material-theme($arizona-theme);
+  @include custom-components-theme($arizona-theme);
 }
 
-.corp-theme{
-  @include angular-material-theme($corp-theme)
+.beach-theme {
+  @include angular-material-theme($beach-theme);
+  @include custom-components-theme($beach-theme);
 }
 
-.lush-theme{
-  @include angular-material-theme($lush-theme)
+.corp-theme {
+  @include angular-material-theme($corp-theme);
+  @include custom-components-theme($corp-theme);
 }
 
-.midnight-theme{
-  @include angular-material-theme($midnight-theme)
+.lush-theme {
+  @include angular-material-theme($lush-theme);
+  @include custom-components-theme($lush-theme);
 }
 
-.pirate-theme{
-  @include angular-material-theme($pirate-theme)
+.midnight-theme {
+  @include angular-material-theme($midnight-theme);
+  @include custom-components-theme($midnight-theme);
 }
 
-.tech-theme{
-  @include angular-material-theme($tech-theme)
+.pirate-theme {
+  @include angular-material-theme($pirate-theme);
+  @include custom-components-theme($pirate-theme);
 }
 
-.tropical-theme{
-  @include angular-material-theme($tropical-theme)
+.tech-theme {
+  @include angular-material-theme($tech-theme);
+  @include custom-components-theme($tech-theme);
 }
 
-body{ margin: 0px }
+.tropical-theme {
+  @include angular-material-theme($tropical-theme);
+  @include custom-components-theme($tropical-theme);
+}
 
-.spacer-greedy{ flex: 1 1 auto }
+body {
+  margin: 0;
+}
 
-//.mat-dialog-container{ background: white }
+.spacer-greedy {
+  flex: 1 1 auto;
+}

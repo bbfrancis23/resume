@@ -1,1 +1,26 @@
-<p>aqua works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="sideNavOpened" style="height: 100vh">
+    <div class="monogram">BF</div>
+    <div *ngFor="let pl of menu.pageLinks" style="width: 200px">
+      <button mat-flat-button>{{pl.title}}</button>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    other content
+    <!--<div class="bootstrap-wrapper">
+      <div class="container-fluid">
+        <div class="row pad-t-1">
+          <div class="col-8">
+            <app-client-list></app-client-list>
+          </div>
+          <div class="col-4">
+            <app-client>
+
+            </app-client>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
