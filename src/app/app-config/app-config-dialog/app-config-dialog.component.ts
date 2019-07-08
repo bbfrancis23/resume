@@ -18,6 +18,7 @@ export class AppConfigDialogComponent implements OnDestroy {
   }
 
   updateTheme(name: string) {
+
     const appConfig: AppConfig = { theme: `${name}-theme`, style: this.appConfig$.style }
     this.appConfigService.setAppConfig(appConfig)
   }

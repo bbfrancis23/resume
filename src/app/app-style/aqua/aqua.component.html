@@ -10,10 +10,14 @@
     <div class="bootstrap-wrapper">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-med-4">col control</div>
+          <div class="col-med-4">
+            <button class="drawer-button" (click)="sideNavOpened=!sideNavOpened" mat-fab color="accent">
+              <mat-icon>{{sideNavOpened ? 'close' : 'menu'}}</mat-icon>
+            </button>
+          </div>
           <div class="col-med-4 spacer-greedy"></div>
           <div class="col-med-4">
-            <button (click)="managerClick(m)" class="manager-button" mat-fab *ngFor="let m of menu.managers" color="primary">
+            <button (click)="managerClick(m)" class="manager-button" mat-fab *ngFor="let m of menu.managers" color="accent">
               <mat-icon>{{m.icon}}</mat-icon>
             </button>
           </div>
