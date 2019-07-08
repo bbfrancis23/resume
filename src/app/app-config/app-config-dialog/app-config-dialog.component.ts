@@ -23,5 +23,10 @@ export class AppConfigDialogComponent implements OnDestroy {
     this.appConfigService.setAppConfig(appConfig)
   }
 
+  updateStyle(style) {
+    const appConfig: AppConfig = { theme: this.appConfig$.theme, style: style.name }
+    this.appConfigService.setAppConfig(appConfig)
+  }
+
   ngOnDestroy() { this.subs.forEach(sub => sub.unsubscribe()) }
 }

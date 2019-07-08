@@ -10,7 +10,15 @@
         </button>
       </span>
     </div>
-
+    <span>Choose a Style:</span>
+    <div *ngFor="let style of appConfigService.styles">
+      <button (click)="updateStyle(style)" mat-stroked-button *ngIf="style.name !== appConfig$.style">
+        {{style.name}}
+      </button>
+      <button (click)="updateStyle(style)" mat-flat-button *ngIf="style.name === appConfig$.style" color="accent">
+        {{style.name}}
+      </button>
+    </div>
   </mat-dialog-content>
   <mat-dialog-actions align="center">
     <button mat-button [mat-dialog-close]="true">DONE</button>

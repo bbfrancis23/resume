@@ -49,6 +49,11 @@ export class AppConfigService implements OnDestroy {
     { name: 'tropical', primary: '#3F51B5', accent: '#03A9F4', icon: 'brightness_low' },
   ]
 
+  styles: any = [
+    { id: 'Classic', name: 'Classic', tooltip: 'Classic Top Navigation' },
+    { id: 'Aqua', name: 'Aqua', tooltip: 'Sliding Side Navigation' }
+  ]
+
   appConfig$: AppConfig
   subs: Subscription[] = []
 
