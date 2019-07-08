@@ -9,8 +9,8 @@
     <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks">{{pl.title}}</button>
 
     <span class="spacer-greedy"></span>
-    <button mat-icon-button *ngFor="let m of menu.managers">
-      <mat-icon (click)="openAppSettings()">{{m.icon}}</mat-icon>
+    <button mat-icon-button *ngFor="let m of menu.managers" (click)="managerClick(m)">
+      <mat-icon>{{m.icon}}</mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

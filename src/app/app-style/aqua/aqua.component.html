@@ -7,20 +7,19 @@
 
   </mat-sidenav>
   <mat-sidenav-content>
-    other content
-    <!--<div class="bootstrap-wrapper">
+    <div class="bootstrap-wrapper">
       <div class="container-fluid">
-        <div class="row pad-t-1">
-          <div class="col-8">
-            <app-client-list></app-client-list>
-          </div>
-          <div class="col-4">
-            <app-client>
-
-            </app-client>
+        <div class="row">
+          <div class="col-med-4">col control</div>
+          <div class="col-med-4 spacer-greedy"></div>
+          <div class="col-med-4">
+            <button (click)="managerClick(m)" class="manager-button" mat-fab *ngFor="let m of menu.managers" color="primary">
+              <mat-icon>{{m.icon}}</mat-icon>
+            </button>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, Subscription } from 'rxjs'
 
 export interface AppConfig {
   style?: 'Classic' | 'Aqua'
+  //TODO: solve quandy of theme on every name
   theme?:
   'arizona-theme' | 'beach-theme' | 'corp-theme' | 'lush-theme' |
   'midnight-theme' | 'pirate-theme' | 'tech-theme' | 'tropial-theme' | string
@@ -19,10 +20,10 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
     if (appConfig) {
-      this.style = appConfig.style || "Classic"
-      this.theme = appConfig.theme || "beach-theme"
+      this.style = appConfig.style || 'Aqua'
+      this.theme = appConfig.theme || 'beach-theme'
     } else {
-      this.style = "Classic"
+      this.style = "Aqua"
       this.theme = "beach-theme"
     }
     return this

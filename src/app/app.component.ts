@@ -21,12 +21,7 @@ export class AppComponent implements OnDestroy {
     private overlayContainer: OverlayContainer) {
 
 
-    try {
-      this.initStyleTheme()
-
-    } catch (err) {
-      console.error(err)
-    }
+    try { this.initStyleTheme() } catch (err) { console.error(err) }
 
     this.menu = {
       home: { title: 'BF', tooltip: 'Brian Francis', icon: 'home' },
@@ -38,7 +33,7 @@ export class AppComponent implements OnDestroy {
         { title: 'Testimonials', tooltip: 'Testimonials', icon: 'star' }
       ],
       managers: [
-        { title: 'App Manager', tooltip: 'Application Manager', icon: 'settings_applications', dialog: true }
+        { id: 'AppManager', title: 'App Manager', tooltip: 'Application Manager', icon: 'settings_applications', dialog: true }
       ]
     }
   }
