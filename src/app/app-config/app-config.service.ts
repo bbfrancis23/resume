@@ -19,10 +19,10 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
     if (appConfig) {
-      this.style = appConfig.style || "Aqua"
+      this.style = appConfig.style || "Classic"
       this.theme = appConfig.theme || "beach-theme"
     } else {
-      this.style = "Aqua"
+      this.style = "Classic"
       this.theme = "beach-theme"
     }
     return this
