@@ -40,8 +40,8 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
 
-    this.theme = (appConfig && appConfig.theme) || THEMES[0]
-    this.style = (appConfig && appConfig.style) || STYLES[0]
+    this.theme = (appConfig && appConfig.theme) || THEMES[6]
+    this.style = (appConfig && appConfig.style) || STYLES[1]
     return this
   }
 }
