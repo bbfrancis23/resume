@@ -1,7 +1,7 @@
-<app-classic [menu]=" menu" *ngIf="appConfig$.style === 'Classic'">
+<app-classic [menu]=" menu" *ngIf="appConfig$.style.title === 'Classic'">
   <router-outlet></router-outlet>
 </app-classic>
 
-<app-aqua [menu]=" menu" *ngIf="appConfig$.style === 'Aqua'">
+<app-aqua [menu]=" menu" *ngIf="appConfig$.style.title === 'Aqua'">
   <router-outlet></router-outlet>
 </app-aqua>

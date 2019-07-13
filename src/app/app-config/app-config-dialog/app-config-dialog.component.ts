@@ -1,8 +1,12 @@
 import { Component, OnDestroy } from '@angular/core'
 import { Subscription } from 'rxjs'
-import { AppConfigService, AppConfig } from '../app-config.service'
+import { AppConfigService, AppConfig, Theme } from '../app-config.service'
 
-@Component({ selector: 'app-config-dialog', templateUrl: 'app-config-dialog.component.html', styleUrls: ['app-config-dialog.component.scss'] })
+@Component({
+  selector: 'app-config-dialog',
+  templateUrl: 'app-config-dialog.component.html',
+  styleUrls: ['app-config-dialog.component.scss']
+})
 export class AppConfigDialogComponent implements OnDestroy {
 
   appConfig$: AppConfig
@@ -17,14 +21,13 @@ export class AppConfigDialogComponent implements OnDestroy {
     }
   }
 
-  updateTheme(name: string) {
-
-    const appConfig: AppConfig = { theme: `${name}-theme`, style: this.appConfig$.style }
+  updateTheme(theme: Theme) {
+    const appConfig: AppConfig = { theme: theme, style: this.appConfig$.style }
     this.appConfigService.setAppConfig(appConfig)
   }
 
   updateStyle(style) {
-    const appConfig: AppConfig = { theme: this.appConfig$.theme, style: style.name }
+    const appConfig: AppConfig = { theme: this.appConfig$.theme, style: style }
     this.appConfigService.setAppConfig(appConfig)
   }
 

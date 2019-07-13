@@ -3,20 +3,20 @@
   <mat-dialog-content align="center">
     <span>Choose a Theme:</span>
     <div style="padding-bottom: 10px">
-      <span *ngFor="let theme of appConfigService.themes;let i = index">
+      <span *ngFor="let theme of appConfigService.getThemes();let i = index">
         <br *ngIf="i===4">
-        <button [ngClass]="{'selected': appConfig$.theme === theme.name+'-theme'}" (click)="updateTheme(theme.name)" mat-mini-fab style="margin: 3px" [ngStyle]="{'background-color': theme.primary , 'color':theme.accent}">
+        <button [ngClass]="{'selected': appConfig$.theme === theme.name+'-theme'}" (click)="updateTheme(theme)" mat-mini-fab style="margin: 3px" [ngStyle]="{'background-color': theme.primary , 'color':theme.accent}">
           <mat-icon [ngClass]="{'icon-adjust': appConfig$.theme === theme.name+'-theme' }">{{theme.icon}}</mat-icon>
         </button>
       </span>
     </div>
     <span>Choose a Style:</span>
-    <div *ngFor="let style of appConfigService.styles">
-      <button (click)="updateStyle(style)" mat-stroked-button *ngIf="style.name !== appConfig$.style">
-        {{style.name}}
+    <div *ngFor="let style of appConfigService.getStyles()">
+      <button (click)="updateStyle(style)" mat-stroked-button *ngIf="style.title !== appConfig$.style">
+        {{style.title}}
       </button>
-      <button (click)="updateStyle(style)" mat-flat-button *ngIf="style.name === appConfig$.style" color="accent">
-        {{style.name}}
+      <button (click)="updateStyle(style)" mat-flat-button *ngIf="style.title === appConfig$.style" color="accent">
+        {{style.title}}
       </button>
     </div>
   </mat-dialog-content>
