@@ -9,12 +9,13 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatToolbarModule } from '@angular/material/toolbar'
 
 import { AppRoutingModule } from './app-routing.module'
+
 import { AppComponent } from './app.component'
 import { AppConfigComponent } from './app-config/app-config.component'
 import { AppConfigDialogComponent } from './app-config/app-config-dialog/app-config-dialog.component'
 
-import { ClassicComponent } from './app-style/classic/classic.component'
-import { AquaComponent } from './app-style/aqua/aqua.component'
+import { ClassicComponent } from './app-styles/classic/classic.component'
+import { AquaComponent } from './app-styles/aqua/aqua.component'
 
 
 @NgModule({

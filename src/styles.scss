@@ -1,15 +1,15 @@
-@import "arizona-theme.scss";
-@import "beach-theme.scss";
-@import "corp-theme.scss";
-@import "lush-theme.scss";
-@import "midnight-theme.scss";
-@import "pirate-theme.scss";
-@import "tech-theme.scss";
-@import "tropical-theme.scss";
+@import "themes/arizona-theme.scss";
+@import "themes/beach-theme.scss";
+@import "themes/corp-theme.scss";
+@import "themes/lush-theme.scss";
+@import "themes/midnight-theme.scss";
+@import "themes/pirate-theme.scss";
+@import "themes/tech-theme.scss";
+@import "themes/tropical-theme.scss";
 @import '~@angular/material/theming';
 @include mat-core();
 @import "bootstrap/grid.scss";
-@import "app/app-style/aqua/aqua-theme.scss";
+@import "app/app-styles/aqua/aqua-theme.scss";
 @mixin custom-components-theme($theme) {
   @include aqua-theme($theme);
 }
