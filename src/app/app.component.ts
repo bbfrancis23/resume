@@ -49,7 +49,7 @@ export class AppComponent extends Unsubscriber {
   }
 
   removeLastThemeHTML() {
-    console.log('removing last theme')
+
     const theme = `${this.lastTheme.title}-${THEME_EXTENSION}`
     this.overlayContainer.getContainerElement().classList.remove(theme);
     document.body.classList.remove(theme);

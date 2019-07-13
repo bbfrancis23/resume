@@ -1,5 +1,6 @@
-import { Injectable, OnDestroy } from '@angular/core'
-import { BehaviorSubject, Observable, Subscription } from 'rxjs'
+import { Injectable } from '@angular/core'
+import { BehaviorSubject, Observable } from 'rxjs'
+import { Unsubscriber } from '../unsubscriber/unsubscriber'
 
 export const THEME_EXTENSION: string = 'theme'
 
@@ -31,7 +32,7 @@ const THEMES: Theme[] = [
 ]
 
 const STYLES: Style[] = [
-  { title: 'Classic', description: 'Classic Web Style' },
+  { title: 'Classic', description: 'Classic Top Menu Navigation' },
   { title: 'Aqua', description: 'Side-Bar Navigation' }
 ]
 
@@ -46,19 +47,17 @@ export class AppConfig implements AppConfig {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AppConfigService implements OnDestroy {
+export class AppConfigService extends Unsubscriber {
 
   private readonly appConfig: BehaviorSubject<AppConfig>
   private readonly currentAppConfig: Observable<AppConfig>
   public setAppConfig(appConfig: AppConfig): void { this.appConfig.next(appConfig) }
   public getAppConfig(): Observable<AppConfig> { return this.currentAppConfig }
 
-
-
   appConfig$: AppConfig
-  subs: Subscription[] = []
 
   constructor() {
+    super()
     try {
       let ac = new AppConfig()
       this.appConfig = new BehaviorSubject<AppConfig>(ac)
@@ -70,13 +69,8 @@ export class AppConfigService implements OnDestroy {
     }
   }
 
-  getThemes() {
-    return THEMES
-  }
+  getThemes() { return THEMES }
 
-  getStyles() {
-    return STYLES
-  }
+  getStyles() { return STYLES }
 
-  ngOnDestroy() { this.subs.forEach(sub => sub.unsubscribe()) }
 }

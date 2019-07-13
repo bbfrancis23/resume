@@ -1,21 +1,20 @@
-import { Component, OnDestroy } from '@angular/core'
-import { Subscription } from 'rxjs'
-import { AppConfigService, AppConfig, Theme } from '../app-config.service'
+import { Component } from '@angular/core'
+import { AppConfigService, AppConfig, Style, Theme } from '../app-config.service'
+import { Unsubscriber } from '../../unsubscriber/unsubscriber'
 
 @Component({
   selector: 'app-config-dialog',
   templateUrl: 'app-config-dialog.component.html',
   styleUrls: ['app-config-dialog.component.scss']
 })
-export class AppConfigDialogComponent implements OnDestroy {
+export class AppConfigDialogComponent extends Unsubscriber {
 
   appConfig$: AppConfig
-  subs: Subscription[] = []
 
   constructor(private appConfigService: AppConfigService) {
+    super()
     try {
       this.subs.push(this.appConfigService.getAppConfig().subscribe(c => this.appConfig$ = c))
-      console.log(this.appConfig$)
     } catch (err) {
       console.error(err)
     }
@@ -26,10 +25,9 @@ export class AppConfigDialogComponent implements OnDestroy {
     this.appConfigService.setAppConfig(appConfig)
   }
 
-  updateStyle(style) {
+  updateStyle(style: Style) {
     const appConfig: AppConfig = { theme: this.appConfig$.theme, style: style }
     this.appConfigService.setAppConfig(appConfig)
   }
 
-  ngOnDestroy() { this.subs.forEach(sub => sub.unsubscribe()) }
 }

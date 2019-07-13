@@ -1,26 +1,25 @@
-<div>
-  <span mat-dialog-title>Application Settings</span>
-  <mat-dialog-content align="center">
-    <span>Choose a Theme:</span>
-    <div style="padding-bottom: 10px">
-      <span *ngFor="let theme of appConfigService.getThemes();let i = index">
-        <br *ngIf="i===4">
-        <button [ngClass]="{'selected': appConfig$.theme === theme.name+'-theme'}" (click)="updateTheme(theme)" mat-mini-fab style="margin: 3px" [ngStyle]="{'background-color': theme.primary , 'color':theme.accent}">
-          <mat-icon [ngClass]="{'icon-adjust': appConfig$.theme === theme.name+'-theme' }">{{theme.icon}}</mat-icon>
-        </button>
+<h1 mat-dialog-title>Application Settings</h1>
+<mat-dialog-content>
+  <div align="center">
+    <h3>Choose a Theme:</h3>
+    <span *ngFor="let theme of appConfigService.getThemes();let i = index">
+      <br *ngIf="i===4">
+      <button class="style-selector" mat-mini-fab matTooltip="{{theme.title | titlecase}}" (click)="updateTheme(theme)" [ngStyle]="{'background-color': theme.primary, color: 'white'}">
+        <mat-icon color="mat-light" *ngIf="appConfig$.theme.title === theme.title">check_circle</mat-icon>
+      </button>
+    </span>
+    <h3>Choose a Style:</h3>
+  </div>
+  <p class="center-col">
+    <mat-radio-group>
+      <span *ngFor="let style of appConfigService.getStyles()">
+        <mat-radio-button [checked]="appConfig$.style.title === style.title" [matTooltip]="style.description" [value]="style.title" (click)="updateStyle(style)">
+          {{style.title}}
+        </mat-radio-button>
       </span>
-    </div>
-    <span>Choose a Style:</span>
-    <div *ngFor="let style of appConfigService.getStyles()">
-      <button (click)="updateStyle(style)" mat-stroked-button *ngIf="style.title !== appConfig$.style">
-        {{style.title}}
-      </button>
-      <button (click)="updateStyle(style)" mat-flat-button *ngIf="style.title === appConfig$.style" color="accent">
-        {{style.title}}
-      </button>
-    </div>
-  </mat-dialog-content>
-  <mat-dialog-actions align="center">
-    <button mat-button [mat-dialog-close]="true">DONE</button>
-  </mat-dialog-actions>
-</div>
+    </mat-radio-group>
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-flat-button [mat-dialog-close]="true" color="accent">DONE</button>
+</mat-dialog-actions>
