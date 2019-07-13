@@ -1,13 +1,9 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-
     <button mat-button disableRipple='true'>
-      <span style="border: 3px solid white; padding: 5px 7px">{{menu.home.title}}</span>
+      <span class="monogram-small">{{menu.home.title}}</span>
     </button>
-
-
-    <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks">{{pl.title}}</button>
-
+    <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks" matTooltipShowDelay="1000" [matTooltip]="pl.description">{{pl.title}}</button>
     <span class="spacer-greedy"></span>
     <button mat-icon-button *ngFor="let m of menu.managers" (click)="managerClick(m)">
       <mat-icon>{{m.icon}}</mat-icon>

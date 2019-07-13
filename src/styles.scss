@@ -66,6 +66,17 @@ h3 {
   font-size: 125%;
 }
 
+.mat-button,
+.mat-flat-button,
+.mat-icon-button {
+  font-size: 95%;
+}
+
 .mat-radio-label-content {
   font-size: 110%;
+}
+
+.monogram-small {
+  border: 3px solid white;
+  padding: 5px 7px;
 }

@@ -17,7 +17,7 @@ export abstract class AppStyle extends Unsubscriber {
     if (m.dialog) {
       if (m.id === 'AppManager') {
         // TODO: find a place to store the top and right values
-        let position: DialogPosition = { top: '20px', right: '25px' }
+        let position: DialogPosition = { top: '20px', right: '50px' }
         this.dialog.open(AppConfigDialogComponent, { 'position': position, hasBackdrop: false })
 
       }

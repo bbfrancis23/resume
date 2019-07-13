@@ -19,16 +19,16 @@ export class AppComponent extends Unsubscriber {
     super()
     try { this.initStyleTheme() } catch (err) { console.error(err) }
     this.menu = {
-      home: { title: 'BF', tooltip: 'Brian Francis', icon: 'home' },
+      home: { title: 'BF', description: 'Brian Francis', icon: 'home' },
       pageLinks: [
-        { title: 'About', tooltip: 'About Brian Francis', icon: 'info' },
-        { title: 'Experience', tooltip: 'Work Experience', icon: 'business_center' },
-        { title: 'Skills', tooltip: 'Skills', icon: 'build' },
-        { title: 'PortFolio', tooltip: 'PortFolio', icon: 'photo_library' },
-        { title: 'Testimonials', tooltip: 'Testimonials', icon: 'star' }
+        { title: 'About', description: 'About Brian Francis', icon: 'info' },
+        { title: 'Experience', description: 'Work Experience', icon: 'business_center' },
+        { title: 'Skills', description: 'Skills', icon: 'build' },
+        { title: 'PortFolio', description: 'Projects', icon: 'photo_library' },
+        { title: 'Testimonials', description: 'What people are saying about Brian', icon: 'star' }
       ],
       managers: [
-        { id: 'AppManager', title: 'App Manager', tooltip: 'Application Manager', icon: 'settings_applications', dialog: true }
+        { id: 'AppManager', title: 'App Manager', description: 'Application Manager', icon: 'settings', dialog: true }
       ]
     }
   }
