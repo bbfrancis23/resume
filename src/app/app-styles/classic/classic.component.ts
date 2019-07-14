@@ -7,6 +7,6 @@ import { AppStyle } from '../app-style'
   templateUrl: 'classic.component.html',
   styleUrls: ['classic.component.scss']
 })
-export class ClassicComponent extends AppStyle {
+export class ClassicAppComponent extends AppStyle {
   constructor(public dialog: MatDialog) { super(dialog) }
 }

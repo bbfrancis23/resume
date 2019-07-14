@@ -17,14 +17,16 @@ import { AppComponent } from './app.component'
 import { AppConfigComponent } from './app-config/app-config.component'
 import { AppConfigDialogComponent } from './app-config/app-config-dialog/app-config-dialog.component'
 
-import { ClassicComponent } from './app-styles/classic/classic.component'
-import { AquaComponent } from './app-styles/aqua/aqua.component'
+import { ClassicAppComponent } from './app-styles/classic/classic.component'
+import { AquaAppComponent } from './app-styles/aqua/aqua.component'
 
+import { ClassicPageComponent } from './page/page-styles/classic/classic-page.component'
 
 @NgModule({
   declarations: [
     AppComponent, AppConfigComponent, AppConfigDialogComponent,
-    AquaComponent, ClassicComponent
+    AquaAppComponent, ClassicAppComponent,
+    ClassicPageComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { AppConfigService, AppConfig, Theme, THEME_EXTENSION } from '../../app-c
   templateUrl: 'aqua.component.html',
   styleUrls: ['aqua.component.scss']
 })
-export class AquaComponent extends AppStyle {
+export class AquaAppComponent extends AppStyle {
   sideNavOpened = false
 
   appConfig$: AppConfig
