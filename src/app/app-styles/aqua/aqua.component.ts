@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { MatDialog } from '@angular/material'
 import { AppStyle } from '../app-style'
 
+import { AppConfigService, AppConfig, Theme, THEME_EXTENSION } from '../../app-config/app-config.service'
+
 @Component({
   selector: 'app-aqua',
   templateUrl: 'aqua.component.html',
@@ -9,5 +11,24 @@ import { AppStyle } from '../app-style'
 })
 export class AquaComponent extends AppStyle {
   sideNavOpened = false
-  constructor(public dialog: MatDialog) { super(dialog) }
+
+  appConfig$: AppConfig
+
+
+  constructor(
+    public dialog: MatDialog,
+    public appConfigService: AppConfigService, ) {
+    super(dialog)
+
+    try {
+      this.appConfigService.getAppConfig().subscribe(c => {
+
+        this.appConfig$ = c
+
+
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }
