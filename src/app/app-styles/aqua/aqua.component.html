@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="sideNavOpened" style="height: 100vh">
+  <mat-sidenav #sidenav mode="over" [(opened)]="sideNavOpened" style="height: 100vh">
 
     <div class="monogram">BF</div>
 
@@ -13,9 +13,7 @@
 
   </mat-sidenav>
   <mat-sidenav-content [style.background-image]="'url(/assets/img/theme/heroes/'+appConfig$.theme.title+'.jpg) '" [style.background-repeat]="'no-repeat'">
-    <ng-content>
 
-    </ng-content>
     <div class="bootstrap-wrapper">
       <div class="container-fluid">
         <div class="row">
@@ -34,5 +32,8 @@
       </div>
     </div>
 
+    <ng-content style="height: 100%">
+
+    </ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -54,8 +54,6 @@ export class AppConfigService extends Unsubscriber {
   public setAppConfig(appConfig: AppConfig): void { this.appConfig.next(appConfig) }
   public getAppConfig(): Observable<AppConfig> { return this.currentAppConfig }
 
-  appConfig$: AppConfig
-
   constructor() {
     super()
     try {
@@ -63,7 +61,7 @@ export class AppConfigService extends Unsubscriber {
       this.appConfig = new BehaviorSubject<AppConfig>(ac)
       this.currentAppConfig = this.appConfig.asObservable()
       this.setAppConfig(ac)
-      this.getAppConfig().subscribe(c => this.appConfig$ = c)
+
     } catch (err) {
       console.error(err)
     }

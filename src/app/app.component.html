@@ -1,7 +1,10 @@
-<app-classic [menu]=" menu" *ngIf="appConfig$.style.title === 'Classic'">
-  <router-outlet></router-outlet>
-</app-classic>
+<ng-container #appConfigGrot [ngSwitch]="(appConfigService.getAppConfig() | async).style.title">
 
-<app-aqua [menu]=" menu" *ngIf="appConfig$.style.title === 'Aqua'">
-  <router-outlet></router-outlet>
-</app-aqua>
+  <app-classic [menu]="menu" *ngSwitchCase="'Classic'">
+    <router-outlet></router-outlet>
+  </app-classic>
+
+  <app-aqua [menu]="menu" *ngSwitchCase="'Aqua'">
+    <router-outlet></router-outlet>
+  </app-aqua>
+</ng-container>

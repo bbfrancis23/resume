@@ -1,0 +1,25 @@
+@import '~@angular/material/theming';
+@mixin classic-page-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  classic-page {
+    div.container {
+      //margin-top: 64px;
+      padding-top: 275px;
+      padding-left: 5%;
+      padding-right: 5%;
+
+      .row {
+        padding: 50px;
+        color: mat-color($background, text);
+        background-color: mat-color($primary, lighter);
+
+        .col {}
+      }
+    }
+  }
+}

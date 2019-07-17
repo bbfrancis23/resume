@@ -6,6 +6,7 @@ import { AppConfigService, AppConfig, Theme, THEME_EXTENSION } from '../../../ap
 appConfig$: AppConfig
 
 @Component({
+  selector: 'classic-page',
   templateUrl: 'classic-page.component.html',
   //styleUrls: ['classic.component.scss']
 })
