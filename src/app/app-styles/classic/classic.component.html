@@ -3,27 +3,27 @@
     <button mat-button disableRipple='true'>
       <span class="monogram-small">{{menu.home.title}}</span>
     </button>
-    <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks" matTooltipShowDelay="1000" [matTooltip]="pl.description">
-      <span *ngIf="!(breakpointObserver.observe([
-            breakPoints?.HandsetLandscape,
-            breakPoints?.HandsetPortrait
-          ]) | async).matches">{{pl.title}}</span>
-      <mat-icon *ngIf="(breakpointObserver.observe([
-            breakPoints?.HandsetLandscape,
-            breakPoints?.HandsetPortrait
-          ]) | async).matches">{{pl.icon}}</mat-icon>
+    <ng-container *ngIf="!appConfigService.xsmallScreen">
+      <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks" matTooltipShowDelay="1000" [matTooltip]="pl.description">
+        <span>{{pl.title}}</span>
 
-    </button>
+      </button>
+    </ng-container>
+
     <span class="spacer-greedy"></span>
+
     <button mat-icon-button *ngFor="let m of menu.managers" (click)="managerClick(m)">
       <mat-icon>{{m.icon}}</mat-icon>
     </button>
   </mat-toolbar-row>
+  <mat-toolbar-row class="page-tools" *ngIf="appConfigService.xsmallScreen">
+    <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks" matTooltipShowDelay="1000" [matTooltip]="pl.description">
+
+      <mat-icon>{{pl.icon}}</mat-icon>
+
+    </button>
+  </mat-toolbar-row>
 </mat-toolbar>
-{{breakpointObserver.observe([
-      breakPoints?.HandsetLandscape,
-      breakPoints?.HandsetPortrait
-    ]) | async | json}}
 <ng-content>
 
 </ng-content>

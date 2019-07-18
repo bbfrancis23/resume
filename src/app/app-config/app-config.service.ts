@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core'
-import { BehaviorSubject, Observable } from 'rxjs'
-import { Unsubscriber } from '../unsubscriber/unsubscriber'
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout'
 import { OverlayContainer } from '@angular/cdk/overlay'
 
+import { Injectable } from '@angular/core'
+
+import { BehaviorSubject, Observable } from 'rxjs'
+
+import { Unsubscriber } from '../unsubscriber/unsubscriber'
 
 export const THEME_EXTENSION: string = 'theme'
 
@@ -62,17 +64,22 @@ export class AppConfigService extends Unsubscriber {
 
   lastTheme: Theme
 
-  constructor(private overlayContainer: OverlayContainer) {
+  xsmallScreen: boolean
+
+  constructor(
+    private overlayContainer: OverlayContainer,
+    public breakpoint: BreakpointObserver
+  ) {
     super()
+
     this.subs.push(this.getAppConfig$().subscribe(ac => {
-
-      console.log(ac)
-
       this._appConfig = ac
       if (this.lastTheme) this.removeLastThemeHTML()
       this.lastTheme = this.appConfig.theme
       this.addThemeHTML()
     }))
+
+    this.subs.push(this.breakpoint.observe(Breakpoints.XSmall).subscribe(result => this.xsmallScreen = result.matches))
   }
 
   getThemes() { return THEMES }
@@ -80,7 +87,6 @@ export class AppConfigService extends Unsubscriber {
   getStyles() { return STYLES }
 
   removeLastThemeHTML() {
-
     const theme = `${this.lastTheme.title}-${THEME_EXTENSION}`
     this.overlayContainer.getContainerElement().classList.remove(theme);
     document.body.classList.remove(theme);
@@ -91,5 +97,9 @@ export class AppConfigService extends Unsubscriber {
     this.overlayContainer.getContainerElement().classList.add(theme);
     document.body.classList.add(theme)
   }
+
+  updateTheme(theme: Theme) { this.setAppConfig$({ theme: theme, style: this.appConfig.style }) }
+
+  updateStyle(style: Style) { this.setAppConfig$({ theme: this.appConfig.theme, style: style }) }
 
 }

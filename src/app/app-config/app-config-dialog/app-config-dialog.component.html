@@ -4,8 +4,8 @@
     <h3>Choose a Theme:</h3>
     <span *ngFor="let theme of appConfigService.getThemes();let i = index">
       <br *ngIf="i===4">
-      <button class="style-selector" mat-mini-fab matTooltip="{{theme.title | titlecase}}" (click)="updateTheme(theme)" [ngStyle]="{'background-color': theme.primary, color: 'white'}">
-        <mat-icon color="mat-light" *ngIf="appConfig$.theme.title === theme.title">check_circle</mat-icon>
+      <button class="style-selector" mat-mini-fab matTooltip="{{theme.title | titlecase}}" (click)="appConfigService.updateTheme(theme)" [ngStyle]="{'background-color': theme.primary, color: 'white'}">
+        <mat-icon color="mat-light" *ngIf="appConfigService.appConfig.theme.title === theme.title">check_circle</mat-icon>
       </button>
     </span>
     <h3>Choose a Style:</h3>
@@ -13,7 +13,7 @@
   <p class="center-col">
     <mat-radio-group>
       <span *ngFor="let style of appConfigService.getStyles()">
-        <mat-radio-button [checked]="appConfig$.style.title === style.title" [matTooltip]="style.description" [value]="style.title" (click)="updateStyle(style)">
+        <mat-radio-button [checked]="appConfigService.appConfig.style.title === style.title" [matTooltip]="style.description" [value]="style.title" (click)="appConfigService.updateStyle(style)">
           {{style.title}}
         </mat-radio-button>
       </span>
