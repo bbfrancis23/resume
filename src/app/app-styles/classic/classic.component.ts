@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material'
 import { AppStyle } from '../app-style'
@@ -8,5 +9,13 @@ import { AppStyle } from '../app-style'
   styleUrls: ['classic.component.scss']
 })
 export class ClassicAppComponent extends AppStyle {
-  constructor(public dialog: MatDialog) { super(dialog) }
+  breakPoints = Breakpoints
+
+  constructor(
+    public dialog: MatDialog,
+    public breakpointObserver: BreakpointObserver
+  ) {
+    super(dialog)
+    console.log(Breakpoints)
+  }
 }

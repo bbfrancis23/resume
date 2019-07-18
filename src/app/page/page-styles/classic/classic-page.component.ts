@@ -20,7 +20,7 @@ export class ClassicPageComponent extends PageStyle {
     super()
 
     try {
-      this.appConfigService.getAppConfig().subscribe(c => {
+      this.appConfigService.getAppConfig$().subscribe(c => {
 
         this.appConfig$ = c
 

@@ -21,7 +21,7 @@ export class AquaAppComponent extends AppStyle {
     super(dialog)
 
     try {
-      this.appConfigService.getAppConfig().subscribe(c => {
+      this.appConfigService.getAppConfig$().subscribe(c => {
 
         this.appConfig$ = c
 

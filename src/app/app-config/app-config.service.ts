@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { Unsubscriber } from '../unsubscriber/unsubscriber'
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { OverlayContainer } from '@angular/cdk/overlay'
+
 
 export const THEME_EXTENSION: string = 'theme'
 
@@ -49,26 +52,44 @@ export class AppConfig implements AppConfig {
 @Injectable({ providedIn: 'root' })
 export class AppConfigService extends Unsubscriber {
 
-  private readonly appConfig: BehaviorSubject<AppConfig>
-  private readonly currentAppConfig: Observable<AppConfig>
-  public setAppConfig(appConfig: AppConfig): void { this.appConfig.next(appConfig) }
-  public getAppConfig(): Observable<AppConfig> { return this.currentAppConfig }
 
-  constructor() {
+  private readonly _appConfig$: BehaviorSubject<AppConfig> = new BehaviorSubject<AppConfig>(new AppConfig())
+  public setAppConfig$(appConfig: AppConfig): void { this._appConfig$.next(appConfig) }
+  public getAppConfig$(): Observable<AppConfig> { return this._appConfig$.asObservable() }
+  _appConfig: AppConfig
+  get appConfig(): AppConfig { return this._appConfig }
+  set appConfig(ac: AppConfig) { this.setAppConfig$(ac) }
+
+  lastTheme: Theme
+
+  constructor(private overlayContainer: OverlayContainer) {
     super()
-    try {
-      let ac = new AppConfig()
-      this.appConfig = new BehaviorSubject<AppConfig>(ac)
-      this.currentAppConfig = this.appConfig.asObservable()
-      this.setAppConfig(ac)
+    this.subs.push(this.getAppConfig$().subscribe(ac => {
 
-    } catch (err) {
-      console.error(err)
-    }
+      console.log(ac)
+
+      this._appConfig = ac
+      if (this.lastTheme) this.removeLastThemeHTML()
+      this.lastTheme = this.appConfig.theme
+      this.addThemeHTML()
+    }))
   }
 
   getThemes() { return THEMES }
 
   getStyles() { return STYLES }
+
+  removeLastThemeHTML() {
+
+    const theme = `${this.lastTheme.title}-${THEME_EXTENSION}`
+    this.overlayContainer.getContainerElement().classList.remove(theme);
+    document.body.classList.remove(theme);
+  }
+
+  addThemeHTML() {
+    const theme = `${this.appConfig.theme.title}-${THEME_EXTENSION}`
+    this.overlayContainer.getContainerElement().classList.add(theme);
+    document.body.classList.add(theme)
+  }
 
 }

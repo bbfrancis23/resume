@@ -14,7 +14,7 @@ export class AppConfigDialogComponent extends Unsubscriber {
   constructor(private appConfigService: AppConfigService) {
     super()
     try {
-      this.subs.push(this.appConfigService.getAppConfig().subscribe(c => this.appConfig$ = c))
+      this.subs.push(this.appConfigService.getAppConfig$().subscribe(c => this.appConfig$ = c))
     } catch (err) {
       console.error(err)
     }
@@ -22,12 +22,12 @@ export class AppConfigDialogComponent extends Unsubscriber {
 
   updateTheme(theme: Theme) {
     const appConfig: AppConfig = { theme: theme, style: this.appConfig$.style }
-    this.appConfigService.setAppConfig(appConfig)
+    this.appConfigService.setAppConfig$(appConfig)
   }
 
   updateStyle(style: Style) {
     const appConfig: AppConfig = { theme: this.appConfig$.theme, style: style }
-    this.appConfigService.setAppConfig(appConfig)
+    this.appConfigService.setAppConfig$(appConfig)
   }
 
 }

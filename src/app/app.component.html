@@ -1,4 +1,4 @@
-<ng-container #appConfigGrot [ngSwitch]="(appConfigService.getAppConfig() | async).style.title">
+<ng-container #appConfigGrot [ngSwitch]="(appConfigService.getAppConfig$() | async).style.title">
 
   <app-classic [menu]="menu" *ngSwitchCase="'Classic'">
     <router-outlet></router-outlet>
@@ -7,4 +7,8 @@
   <app-aqua [menu]="menu" *ngSwitchCase="'Aqua'">
     <router-outlet></router-outlet>
   </app-aqua>
+
+  <app-classic [menu]="menu" *ngSwitchDefault>
+    <router-outlet></router-outlet>
+  </app-classic>
 </ng-container>

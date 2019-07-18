@@ -1,23 +1,14 @@
 import { Component } from '@angular/core'
-import { OverlayContainer } from '@angular/cdk/overlay'
 
-import { Unsubscriber } from './unsubscriber/unsubscriber'
-
-import { AppConfigService, AppConfig, Theme, THEME_EXTENSION } from './app-config/app-config.service'
+import { AppConfigService } from './app-config/app-config.service'
 import { Menu } from './menu/menu'
 
-@Component({ selector: 'app-root', templateUrl: 'app.component.html', styleUrls: ['app.component.scss'] })
-export class AppComponent extends Unsubscriber {
+@Component({ selector: 'app-root', templateUrl: 'app.component.html' })
+export class AppComponent {
 
-  appConfig$: AppConfig
   menu: Menu
-  lastTheme: Theme
 
-  constructor(
-    private appConfigService: AppConfigService,
-    private overlayContainer: OverlayContainer) {
-    super()
-    try { this.initStyleTheme() } catch (err) { console.error(err) }
+  constructor(protected appConfigService: AppConfigService) {
     this.menu = {
       home: { title: 'BF', description: 'Brian Francis', icon: 'home' },
       pageLinks: [
@@ -32,33 +23,4 @@ export class AppComponent extends Unsubscriber {
       ]
     }
   }
-
-  initStyleTheme() {
-    try {
-      this.appConfigService.getAppConfig().subscribe(c => {
-
-        this.appConfig$ = c
-        if (this.lastTheme) this.removeLastThemeHTML()
-        this.lastTheme = this.appConfig$.theme
-        this.addThemeHTML()
-
-      })
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  removeLastThemeHTML() {
-
-    const theme = `${this.lastTheme.title}-${THEME_EXTENSION}`
-    this.overlayContainer.getContainerElement().classList.remove(theme);
-    document.body.classList.remove(theme);
-  }
-
-  addThemeHTML() {
-    const theme = `${this.appConfig$.theme.title}-${THEME_EXTENSION}`
-    this.overlayContainer.getContainerElement().classList.add(theme);
-    document.body.classList.add(theme)
-  }
-
 }
