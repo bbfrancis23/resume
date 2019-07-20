@@ -45,7 +45,7 @@ export class AppConfig implements AppConfig {
 
   constructor(appConfig?: AppConfig) {
 
-    this.theme = (appConfig && appConfig.theme) || THEMES[2]
+    this.theme = (appConfig && appConfig.theme) || THEMES[5]
     this.style = (appConfig && appConfig.style) || STYLES[0]
     return this
   }
@@ -53,7 +53,6 @@ export class AppConfig implements AppConfig {
 
 @Injectable({ providedIn: 'root' })
 export class AppConfigService extends Unsubscriber {
-
 
   private readonly _appConfig$: BehaviorSubject<AppConfig> = new BehaviorSubject<AppConfig>(new AppConfig())
   public setAppConfig$(appConfig: AppConfig): void { this._appConfig$.next(appConfig) }

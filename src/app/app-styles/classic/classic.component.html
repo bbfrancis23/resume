@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-button disableRipple='true'>
+    <button class="btn-start" mat-button disableRipple='true'>
       <span class="monogram-small">{{menu.home.title}}</span>
     </button>
     <ng-container *ngIf="!appConfigService.xsmallScreen">
@@ -12,15 +12,13 @@
 
     <span class="spacer-greedy"></span>
 
-    <button mat-icon-button *ngFor="let m of menu.managers" (click)="managerClick(m)">
+    <button class="btn-end" mat-icon-button *ngFor="let m of menu.managers" (click)="managerClick(m)">
       <mat-icon>{{m.icon}}</mat-icon>
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row class="page-tools" *ngIf="appConfigService.xsmallScreen">
     <button mat-flat-button color="primary" *ngFor="let pl of menu.pageLinks" matTooltipShowDelay="1000" [matTooltip]="pl.description">
-
       <mat-icon>{{pl.icon}}</mat-icon>
-
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

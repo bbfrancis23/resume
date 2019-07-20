@@ -8,13 +8,5 @@ import { Unsubscriber } from '../../unsubscriber/unsubscriber'
   styleUrls: ['app-config-dialog.component.scss']
 })
 export class AppConfigDialogComponent extends Unsubscriber {
-
-
-
-  constructor(protected appConfigService: AppConfigService) {
-    super()
-
-  }
-
-
+  constructor(protected appConfigService: AppConfigService) { super() }
 }

@@ -13,10 +13,9 @@ export class ClassicAppComponent extends AppStyle {
 
 
   constructor(
-    public dialog: MatDialog,
-    protected appConfigService: AppConfigService
+    dialog: MatDialog,
+    appConfigService: AppConfigService
   ) {
-    super(dialog)
-
+    super(appConfigService, dialog)
   }
 }
