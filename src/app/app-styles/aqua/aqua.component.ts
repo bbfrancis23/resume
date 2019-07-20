@@ -16,10 +16,10 @@ export class AquaAppComponent extends AppStyle {
 
 
   constructor(
-    public dialog: MatDialog,
-    public appConfigService: AppConfigService, ) {
-    super(dialog)
-
+    dialog: MatDialog,
+    appConfigService: AppConfigService, ) {
+    super(appConfigService, dialog)
+    appConfigService.menuHeight = '0px'
     try {
       this.appConfigService.getAppConfig$().subscribe(c => {
 

@@ -65,6 +65,8 @@ export class AppConfigService extends Unsubscriber {
 
   xsmallScreen: boolean
 
+  menuHeight: string = null
+
   constructor(
     private overlayContainer: OverlayContainer,
     public breakpoint: BreakpointObserver

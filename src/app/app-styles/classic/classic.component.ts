@@ -17,5 +17,7 @@ export class ClassicAppComponent extends AppStyle {
     appConfigService: AppConfigService
   ) {
     super(appConfigService, dialog)
+
+    appConfigService.menuHeight = '64px'
   }
 }

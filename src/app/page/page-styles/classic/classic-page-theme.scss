@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @mixin classic-page-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
@@ -18,7 +18,8 @@
         color: mat-color($background, text);
         background-color: mat-color($primary, lighter);
 
-        .col {}
+        .col {
+        }
       }
     }
   }

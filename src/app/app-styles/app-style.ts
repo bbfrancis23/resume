@@ -13,8 +13,8 @@ export abstract class AppStyle extends Unsubscriber {
   @Input() menu: Menu
 
   constructor(
-    private appConfigService: AppConfigService,
-    private dialog: MatDialog
+    protected appConfigService: AppConfigService,
+    protected dialog: MatDialog
 
   ) { super() }
 
