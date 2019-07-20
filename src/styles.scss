@@ -6,14 +6,18 @@
 @import "themes/pirate-theme.scss";
 @import "themes/tech-theme.scss";
 @import "themes/tropical-theme.scss";
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
+
 @include mat-core();
 @import "bootstrap/grid.scss";
+
+// custom component theming
 @import "app/app-styles/aqua/aqua-theme.scss";
 @import "app/page/page-styles/classic/classic-page-theme.scss";
+
 @mixin custom-components-theme($theme) {
   @include aqua-theme($theme);
-  @include classic-page-theme($theme)
+  @include classic-page-theme($theme);
 }
 
 .arizona-theme {
@@ -84,5 +88,5 @@ h3 {
 }
 
 .handwriting {
-  font-family: 'Satisfy', cursive;
+  font-family: "Satisfy", cursive;
 }

@@ -1,7 +1,11 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 
 $beach-theme-primary: mat-palette($mat-teal);
 $beach-theme-accent: mat-palette($mat-brown, 200, 100, 500);
 $beach-theme-warn: mat-palette($mat-red);
 
-$beach-theme: mat-light-theme( $beach-theme-primary, $beach-theme-accent, $beach-theme-warn);
+$beach-theme: mat-light-theme(
+  $beach-theme-primary,
+  $beach-theme-accent,
+  $beach-theme-warn
+);
