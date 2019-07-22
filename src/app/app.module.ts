@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule } from '@angular/core'
 
 import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list'
@@ -21,12 +22,14 @@ import { ClassicAppComponent } from './app-styles/classic/classic.component'
 import { AquaAppComponent } from './app-styles/aqua/aqua.component'
 
 import { ClassicPageComponent } from './page/page-styles/classic/classic-page.component'
+import { ResumeIntroComponent } from './page/page-items/resume-intro/resume-intro.component'
 
 @NgModule({
   declarations: [
     AppComponent, AppConfigComponent, AppConfigDialogComponent,
     AquaAppComponent, ClassicAppComponent,
-    ClassicPageComponent
+    ClassicPageComponent,
+    ResumeIntroComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { ClassicPageComponent } from './page/page-styles/classic/classic-page.co
     BrowserAnimationsModule,
 
     MatButtonModule,
+    MatCardModule,
     MatDialogModule,
     MatIconModule,
     MatListModule,

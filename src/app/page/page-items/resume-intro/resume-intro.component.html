@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8" style="padding: 75px;">
+      <h1 class="handwriting mat-display-3" style="margin: 0px">{{resumeIntro.name}}</h1>
+      <h2 class="mat-display-1" style="margin: 0px">{{resumeIntro.title}}</h2>
+      <h3 class="mat-display-1" style="margin: 0px">{{resumeIntro.subTitle}}</h3>
+      <p style="text-align: justify; line-height: 30px">
+        {{resumeIntro.text}}
+      </p>
+      <p>
+        <a [href]="'mailto:'+resumeIntro.email" mat-mini-fab color="accent" style="margin-right:10px" matTooltip="bbfrancis23@gmail.com">
+          <mat-icon>mail</mat-icon>
+        </a>
+        <a [href]="'tel:'+resumeIntro.phoneString" [disabled]="false" button mat-mini-fab isRoundButton="false" color="accent" [disabled]="false" style="margin-right: 10px" [matTooltip]="resumeIntro.phoneString">
+          <mat-icon>phone</mat-icon>
+        </a>
+        <a [href]="'tel:'+resumeIntro.phoneString" [disabled]="false" button mat-mini-fab isRoundButton="false" color="accent" [disabled]="false" style="margin-right: 10px" [matTooltip]="resumeIntro.phoneString">
+          <mat-icon>textsms</mat-icon>
+        </a>
+      </p>
+
+
+    </div>
+    <div class="col-md-4 no-gutters" style="padding-right: 0px; padding-left: 0px;">
+      <img src="/assets/img/brian-francis.jpg" align="right" style="height: 100%">
+    </div>
+  </div>
+</div>

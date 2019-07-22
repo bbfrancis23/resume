@@ -1,12 +1,12 @@
-<div class="bootstrap-wrapper" [style.background-image]="'url(/assets/img/theme/heroes/'+this.appConfigService.appConfig.theme.title+'.jpg)'" [style.background-repeat]="'no-repeat'" [style.background-attachment]="'fixed'" [style.background-position]="'0px '+appConfigService?.menuHeight">
+<div class="bootstrap-wrapper" [style.background-image]="'url(/assets/img/theme/heroes/'+this.appConfigService.appConfig.theme.title+'.jpg)'" [style.background-position]="'0px '+appConfigService?.menuHeight" [style.background-repeat]="'no-repeat'"
+  [style.background-attachment]="'fixed'">
   <div class="container">
     <div class="row">
-      <div class="col-med-1"></div>
-      <div class="col-med-10">
-        <h1 class="handwriting">Brian Francis</h1>
+
+      <div class="col-med-12">
+        <resume-intro></resume-intro>
       </div>
-      <div class="col-med-1">
-      </div>
+
     </div>
   </div>
 </div>
