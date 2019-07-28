@@ -1,11 +1,5 @@
-import { MatDialog } from '@angular/material'
+import { UnSubscriber } from '../../unsubscriber/unsubscriber'
 
-import { Unsubscriber } from '../../unsubscriber/unsubscriber'
-
-export abstract class PageStyle extends Unsubscriber {
-
-
-  constructor() { super() }
-
-
+export abstract class PageStyle extends UnSubscriber {
+  protected constructor() { super() }
 }

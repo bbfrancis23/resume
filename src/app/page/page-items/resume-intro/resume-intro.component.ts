@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Unsubscriber } from '../../../unsubscriber/unsubscriber'
+import { UnSubscriber } from '../../../unsubscriber/unsubscriber'
 
 export interface PhoneNumber {
   countryCode: number
@@ -22,8 +22,9 @@ export interface ResumeIntro {
   selector: 'resume-intro',
   templateUrl: 'resume-intro.component.html'
 })
-export class ResumeIntroComponent extends Unsubscriber {
+export class ResumeIntroComponent extends UnSubscriber {
 
+  // noinspection LongLine
   resumeIntro: ResumeIntro = {
     name: 'Brian Francis',
     title: 'Full Stack Software Engineer',
@@ -37,7 +38,7 @@ export class ResumeIntroComponent extends Unsubscriber {
 
   constructor() {
     super()
-    const phone = this.resumeIntro.phone
-    this.resumeIntro.phoneString = `${phone.countryCode}-${phone.areaCode}-${phone.prefix}-${phone.lineNumber}`
+    // tslint:disable-next-line:max-line-length
+    this.resumeIntro.phoneString = `${this.resumeIntro.phone.countryCode}-${this.resumeIntro.phone.areaCode}-${this.resumeIntro.phone.prefix}-${this.resumeIntro.phone.lineNumber}`
   }
 }

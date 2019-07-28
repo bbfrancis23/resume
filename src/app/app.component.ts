@@ -20,5 +20,5 @@ export class AppComponent {
     ]
   }
 
-  constructor(protected appConfigService: AppConfigService) { }
+  constructor(public appConfigService: AppConfigService) { }
 }

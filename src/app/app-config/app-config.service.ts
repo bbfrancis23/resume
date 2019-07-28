@@ -5,7 +5,10 @@ import { Injectable } from '@angular/core'
 
 import { BehaviorSubject, Observable } from 'rxjs'
 
-import { Unsubscriber } from '../unsubscriber/unsubscriber'
+import { UnSubscriber } from '../unsubscriber/unsubscriber'
+
+
+import { HttpClient } from '@angular/common/http';
 
 export const THEME_EXTENSION: string = 'theme'
 
@@ -52,7 +55,7 @@ export class AppConfig implements AppConfig {
 }
 
 @Injectable({ providedIn: 'root' })
-export class AppConfigService extends Unsubscriber {
+export class AppConfigService extends UnSubscriber {
 
   private readonly _appConfig$: BehaviorSubject<AppConfig> = new BehaviorSubject<AppConfig>(new AppConfig())
   public setAppConfig$(appConfig: AppConfig): void { this._appConfig$.next(appConfig) }
@@ -69,10 +72,13 @@ export class AppConfigService extends Unsubscriber {
 
   constructor(
     private overlayContainer: OverlayContainer,
-    public breakpoint: BreakpointObserver
+    public breakpoint: BreakpointObserver,
+    public http: HttpClient
   ) {
     super()
 
+    console.log('McFly')
+    this.getThemes()
     this.subs.push(this.getAppConfig$().subscribe(ac => {
       this._appConfig = ac
       if (this.lastTheme) this.removeLastThemeHTML()
@@ -83,7 +89,20 @@ export class AppConfigService extends Unsubscriber {
     this.subs.push(this.breakpoint.observe(Breakpoints.XSmall).subscribe(result => this.xsmallScreen = result.matches))
   }
 
-  getThemes() { return THEMES }
+  getThemes() {
+
+     console.log('getting themes')
+
+    this.http.get<[Theme]>('api/themes')
+      .toPromise()
+      .then(res => {
+        console.log(res)
+        //this.states = res;
+      })
+      .catch(err => console.log(err))
+
+    return THEMES
+  }
 
   getStyles() { return STYLES }
 

@@ -7,9 +7,9 @@ import { AppConfigDialogComponent } from '../app-config/app-config-dialog/app-co
 import { AppConfigService } from '../app-config/app-config.service'
 
 import { Menu, MenuItem } from '../menu/menu'
-import { Unsubscriber } from '../unsubscriber/unsubscriber'
+import { UnSubscriber } from '../unsubscriber/unsubscriber'
 
-export abstract class AppStyle extends Unsubscriber {
+export abstract class AppStyle extends UnSubscriber {
   @Input() menu: Menu
 
   constructor(
