@@ -20,5 +20,6 @@ export class AppComponent {
     ]
   }
 
-  constructor(public appConfigService: AppConfigService) { }
+  constructor(public appConfigService: AppConfigService) {
+  }
 }

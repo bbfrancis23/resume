@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <div align="center">
     <h3>Choose a Theme:</h3>
-    <span *ngFor="let theme of appConfigService.getThemes();let i = index">
+    <span *ngFor="let theme of appConfigService.themes;let i = index">
       <br *ngIf="i===4">
       <button class="style-selector" mat-mini-fab matTooltip="{{theme.title | titlecase}}" (click)="appConfigService.updateTheme(theme)" [ngStyle]="{'background-color': theme.primary, color: 'white'}">
         <mat-icon color="mat-light" *ngIf="appConfigService.appConfig.theme.title === theme.title">check_circle</mat-icon>
